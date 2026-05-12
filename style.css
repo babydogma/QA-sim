@@ -1,0 +1,150 @@
+:root{
+  --bg:#080a10;
+  --panel:#121722;
+  --panel-2:#171d2a;
+  --text:#f5f7fb;
+  --muted:#8e96a8;
+  --blue:#5c8cff;
+  --green:#31d27c;
+  --red:#ff5c7a;
+  --line:rgba(255,255,255,.08);
+  --shadow: 0 24px 80px rgba(0,0,0,.45);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:radial-gradient(circle at top,#182033 0,#080a10 46%,#05060a 100%);color:var(--text)}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer;border:0}
+
+.app{
+  width:min(430px,100%);
+  min-height:100dvh;
+  margin:0 auto;
+  padding:24px 18px calc(24px + env(safe-area-inset-bottom));
+}
+
+.screen{display:none;animation:fade .22s ease}
+.screen.active{display:block}
+@keyframes fade{from{opacity:.2;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+h1,h2,h3,p{margin:0}
+h1{font-size:36px;letter-spacing:-.04em;line-height:1}
+h2{font-size:24px;letter-spacing:-.03em}
+h3{font-size:18px}
+.muted{color:var(--muted);line-height:1.45}
+.eyebrow{text-transform:uppercase;font-size:12px;letter-spacing:.16em;color:var(--blue);font-weight:800;margin-bottom:12px}
+
+.hero{display:grid;gap:22px;padding-top:28px}
+.level-card,.scenario,.task-card,.review-card,.fake-phone{
+  background:linear-gradient(180deg,var(--panel),#0e121b);
+  border:1px solid var(--line);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+}
+.level-card{padding:18px}
+.level-card span,.label{display:block;color:var(--muted);font-size:13px;margin-bottom:8px}
+.level-card strong{font-size:18px}
+.bar{height:9px;background:#252b3a;border-radius:999px;margin-top:14px;overflow:hidden}
+.bar i{display:block;height:100%;width:0%;background:var(--blue);border-radius:inherit;transition:.35s}
+
+.primary{
+  width:100%;
+  color:white;
+  background:linear-gradient(135deg,#5c8cff,#4777f0);
+  border-radius:16px;
+  padding:15px 18px;
+  font-weight:800;
+  box-shadow:0 14px 36px rgba(92,140,255,.25);
+}
+.big{margin-top:22px}
+
+.section-title{display:flex;align-items:center;justify-content:space-between;margin:32px 0 14px}
+.section-title span{color:var(--muted);font-weight:800;font-size:13px}
+.scenario{width:100%;display:flex;justify-content:space-between;align-items:center;text-align:left;color:var(--text);padding:18px;margin-bottom:12px}
+.scenario small{display:block;color:var(--muted);margin-top:6px}
+.scenario em{font-style:normal;background:#252b3a;color:#9bb5ff;border-radius:999px;padding:7px 13px;font-size:12px;font-weight:800}
+.disabled{opacity:.45}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:10px 0 22px}
+.ghost{background:rgba(255,255,255,.06);color:var(--text);border-radius:12px;min-width:42px;height:42px;font-size:22px}
+.timer,.score{background:#151c2c;color:#9bb5ff;border:1px solid var(--line);border-radius:999px;padding:9px 13px;font-weight:900}
+.score{color:var(--green)}
+
+.fake-phone{padding:14px;border-radius:32px}
+.fake-app{background:#0d111a;border-radius:24px;overflow:hidden;border:1px solid var(--line)}
+.fake-app__top{height:58px;background:#171d2a;display:flex;align-items:center;justify-content:space-between;padding:0 18px}
+.status-dot{width:13px;height:13px;border-radius:50%;background:var(--red);box-shadow:0 0 18px var(--red)}
+.login-card{padding:22px;display:grid;gap:14px}
+label{display:grid;gap:7px;color:#b8c0d3;font-size:13px;font-weight:700}
+input,textarea,select{width:100%;background:#202637;color:var(--text);border:1px solid transparent;border-radius:14px;padding:14px 15px;outline:none}
+textarea{min-height:86px;resize:vertical}
+input:focus,textarea:focus,select:focus{border-color:var(--blue)}
+.field-hint{min-height:16px;color:var(--red)}
+.login-btn{width:100%;border-radius:14px;padding:15px;background:var(--blue);color:white;font-weight:900;margin-top:4px}
+.login-btn.loading{opacity:.75;pointer-events:none}
+.login-message{min-height:22px;color:var(--red);font-weight:700}
+.task-card{margin-top:18px;padding:18px}
+.task-card p{color:var(--muted);margin:8px 0 16px;line-height:1.45}
+
+dialog{width:min(430px,calc(100% - 26px));border:0;border-radius:28px;background:var(--panel);color:var(--text);padding:0;box-shadow:var(--shadow)}
+dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(6px)}
+.report-form{padding:18px;display:grid;gap:13px}
+.report-form header{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.review-grid{display:grid;gap:14px}
+.review-card{padding:18px}
+.review-card p,.review-card li{color:#b9c0d2;line-height:1.4}
+.review-card ul{margin:10px 0 0;padding-left:20px}
+.success h3,.success .label{color:var(--green)}
+.danger h3,.danger .label{color:var(--red)}
+
+@media (min-width: 720px){
+  .app{width:720px}
+  .screen--home .hero{grid-template-columns:1.1fr .9fr;align-items:end}
+}
+
+
+.theory-card{
+  margin-top:18px;
+  padding:18px;
+  background:linear-gradient(180deg,#171d2a,#101520);
+  border:1px solid var(--line);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+}
+.theory-card__head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.theory-card__head span{color:#9bb5ff;font-weight:900;font-size:13px}
+.theory-card p{color:#b9c0d2;line-height:1.45;margin-bottom:14px}
+.secondary{
+  width:100%;
+  color:var(--text);
+  background:rgba(255,255,255,.07);
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:13px 16px;
+  font-weight:800;
+}
+.hint-box,.report-help{
+  background:rgba(92,140,255,.1);
+  border:1px solid rgba(92,140,255,.22);
+  color:#c8d4ff;
+  border-radius:16px;
+  padding:13px 14px;
+  line-height:1.4;
+  margin-bottom:14px;
+}
+.report-help{margin:0}
+.theory-modal{padding:18px;display:grid;gap:18px}
+.theory-modal header{display:flex;justify-content:space-between;align-items:center}
+.theory-modal h3{margin-bottom:10px}
+.theory-modal ul{margin:0;padding-left:20px;color:#c6ccda;line-height:1.5}
+.example-report{
+  background:#0e121b;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:14px;
+  display:grid;
+  gap:8px;
+}
+.example-report p{color:#c6ccda;line-height:1.35}
